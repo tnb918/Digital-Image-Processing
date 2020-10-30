@@ -20,7 +20,7 @@ int main()
 		GaussianBlur(rFrame, outFrame, Size(5, 5),1,0, BORDER_DEFAULT);
 
 		imshow("original", rFrame);
-		imshow("GaussianBlur", outFrame);
+		imshow("after_GaussianBlur", outFrame);
 		waitKey(30);
 	}
 }
