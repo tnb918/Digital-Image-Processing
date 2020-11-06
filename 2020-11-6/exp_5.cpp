@@ -38,15 +38,13 @@ int main()
 	circle(src, Point(0, y1), 0, CV_RGB(255, 0, 0), 5, 8, 0);
 
 	//变换前的三点坐标
-	const Point2f src_pt[] = {
-								Point2f(x1-2,2),
-								Point2f(x2,height-1),
-								Point2f(0,y1) };
+	const Point2f src_pt[] = { Point2f(x1 - 2,2),
+		Point2f(x2,height - 1),
+		Point2f(0,y1) };
 	//变换后的三点坐标
-	const Point2f dst_pt[] = {
-								Point2f(0,0),
-								Point2f(width-1,height-1),
-								Point2f(0,height-1) };
+	const Point2f dst_pt[] = { Point2f(0,0),
+		Point2f(width - 1,height - 1),
+		Point2f(0,height - 1) };
 	//计算仿射矩阵
 	const Mat affine_matrix = getAffineTransform(src_pt, dst_pt);
 	warpAffine(src, dstMat, affine_matrix, srcMat.size());
