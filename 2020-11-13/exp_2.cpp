@@ -27,7 +27,7 @@ int main()
 		pt1.y = saturate_cast<int>(y0 + 1000 * (a));
 		pt2.x = saturate_cast<int>(x0 - 1000 * (-b));
 		pt2.y = saturate_cast<int>(y0 - 1000 * (a));
-		line(srcMat, pt1, pt2, Scalar(0, 0, 255), 1, CV_AA);
+		line(srcMat, pt1, pt2, Scalar(0, 255, 255), 2, CV_AA);
 	}
 
 	imshow("canny", canny);
