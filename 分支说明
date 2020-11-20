@@ -43,3 +43,8 @@ printPrimeNumber
   实验1 实现不自动裁剪的图像旋转。
   实验2 利用HoughLines检测并绘制直线。
   实验3 利用HoughLinesP检测并绘制直线。
+
+2020-11-20
+  实验1 利用findContours检测车轮上的圆，绘制轮廓及最小外接四边形。
+  实验2 利用findContours检测芯片，绘制轮廓及最小外接四边形。
+  实验2 利用HSV提取颜色的方法和findContours函数检测红色瓶盖，绘制轮廓及最小外接四边形。
