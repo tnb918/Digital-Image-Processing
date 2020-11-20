@@ -8,13 +8,18 @@ int main()
 	Mat srcMat = imread("1.jpg", 0);
 	Mat disMat = imread("1.jpg");
 	Mat binary;
-	Mat binary2;
+	Mat binary_not;
 
+	//二值化并反色变换
 	threshold(srcMat, binary, 100, 255, THRESH_OTSU);
-	bitwise_not(binary, binary2);
-	imshow("binary2", binary2);
+	bitwise_not(binary, binary_not);
+	imshow("binary", binary);
+	imshow("binary_not", binary_not);
+
+	//通过findContours寻找连通域
 	vector<vector<Point>> contours;
-	findContours(binary2, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+	findContours(binary_not, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+	//绘制轮廓及最小外接四边形
 	for (int i = 0; i < contours.size(); i++)
 	{
 		RotatedRect rbox = minAreaRect(contours[i]);

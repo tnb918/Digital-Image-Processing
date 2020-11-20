@@ -10,22 +10,25 @@ int main()
 	Mat binary;
 	Mat binary_open;
 
+	//二值化
 	threshold(srcMat, binary, 100, 255, THRESH_OTSU);
 	imshow("binary", binary);
 
+	//构建结构元素，进行开运算，消除芯片周围黏连部分
 	Mat element = getStructuringElement(MORPH_RECT, Size(3, 3), Point(-1, -1));
-	cv::morphologyEx(binary, binary_open, MORPH_OPEN, element, Point(-1, -1), 1);
-	cv::imshow("binary_open", binary_open);
+	morphologyEx(binary, binary_open, MORPH_OPEN, element, Point(-1, -1), 1);
+	imshow("binary_open", binary_open);
 
+	//通过findContours寻找连通域
 	vector<vector<Point>> contours;
 	findContours(binary_open, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+	//绘制轮廓及最小外接四边形
 	for (int i = 0; i < contours.size(); i++)
 	{
 		RotatedRect rbox = minAreaRect(contours[i]);
 		float width = (float)rbox.size.width;
 		float height = (float)rbox.size.height;
 		float area = width * height;
-		float ration = width / height;
 		if (area>500)
 		{
 			drawContours(disMat, contours, i, Scalar(0, 255, 255), 1, 8);
@@ -38,6 +41,6 @@ int main()
 		}
 	}
 	imshow("disMat", disMat);
-	waitKey();
+	waitKey(0);
 	return 0;
 }
