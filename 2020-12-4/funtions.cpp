@@ -360,7 +360,6 @@ int calcDft2Image(cv::Mat magMat, cv::Mat ph, double normVal, cv::Mat & dstMat)
 }
 
 
-
 int mouseROI()
 {
 	cv::Mat srcMat = imread("Lena.jpg");
