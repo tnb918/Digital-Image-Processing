@@ -29,7 +29,6 @@ int main()
 			all.push_back(frame);
 			meanMat.create(frame.size(), CV_8UC1);
 			varMat.create(frame.size(), CV_32FC1);
-			
 			cout << "Successfully loaded frame of "<<cnt << endl;
 		}
 		else if (cnt == nframe)
