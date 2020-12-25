@@ -7,7 +7,7 @@ using namespace std;
 int calcHOG(Mat srcMat, float* hist, int nAngle, int cellSize);
 float normL2(float* hist1, float* hist2, int num);
 
-//由于图像较大，需要多次计算HOG和距离，耗时较长
+//由于图像较大，需要多次计算HOG和距离，耗时较多
 int main()
 {
 	Mat srcMat = imread("src.jpg", 0);
