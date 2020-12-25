@@ -50,6 +50,12 @@ int main()
 			objMat = srcMat(r);
 
 			reCode = calcHOG(objMat, obj_hist, nAngle, cellSize);
+			if (reCode != 0)
+			{
+				delete[] obj_hist;
+				return -1;
+			}
+
 			dis1 = normL2(ref_hist, obj_hist, bins);
 			if (i == 0 && j == 0)
 			{
