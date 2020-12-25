@@ -7,6 +7,7 @@ using namespace std;
 int calcHOG(Mat srcMat, float* hist, int nAngle, int cellSize);
 float normL2(float* hist1, float* hist2, int num);
 
+//由于图像较大，需要多次计算HOG和距离，耗时较长
 int main()
 {
 	Mat srcMat = imread("src.jpg", 0);
@@ -22,6 +23,7 @@ int main()
 	//动态建立数组，开辟内存
 	float* ref_hist = new float[bins];
 	memset(ref_hist, 0, sizeof(float) * bins);
+
 	//在循环外面计算固定模板的HOG，加快运算速度
 	int reCode = 0;
 	reCode = calcHOG(refMat, ref_hist, nAngle, cellSize);
