@@ -142,7 +142,7 @@ void addEffect()
 	cap1.open("..\\testImages\\bg.mp4");
 	VideoCapture cap2;
 	cap2.open("..\\testImages\\dragon.mp4");
-	VideoWriter video("test.avi", CV_FOURCC('M', 'P', '4', '2'), 20.0, Size(320, 568));
+	VideoWriter video("..\\testImages\\result.avi", CV_FOURCC('M', 'P', '4', '2'), 20.0, Size(320, 568));
 
 	int currentFrame1 = 0;
 	int currentFrame2 = 0;
