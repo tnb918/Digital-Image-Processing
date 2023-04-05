@@ -1,2 +1,2 @@
-# digital-image-processing
+# Digital-Image-Processing
 digital image processing
